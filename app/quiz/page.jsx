@@ -69,49 +69,49 @@ const QuizPage = () => {
         {/* we need to show the result or we need to show the question we are on. */}
 
         {showResult ? (
-           <div className="quiz-container">
-           <h3>Results</h3>
-           <h3>Overall {(result.score / 25) * 100}%</h3>
-           <p>
-             Total Questions: <span>{questions.length}</span>
-           </p>
-           <p>
-             Total Score: <span>{result.score}</span>
-           </p>
-           <p>
-             Correct Answers: <span>{result.correctAnswers}</span>
-           </p>
-           <p>
-             Wrong Answers: <span>{result.wrongAnswers}</span>
-           </p>
-           <button onClick={() => window.location.reload()}>Restart</button>
-         </div>
+          <div className="quiz-container">
+            <h3>Results</h3>
+            <h3>Overall {(result.score / 25) * 100}%</h3>
+            <p>
+              Total Questions: <span>{questions.length}</span>
+            </p>
+            <p>
+              Total Score: <span>{result.score}</span>
+            </p>
+            <p>
+              Correct Answers: <span>{result.correctAnswers}</span>
+            </p>
+            <p>
+              Wrong Answers: <span>{result.wrongAnswers}</span>
+            </p>
+            <button onClick={() => window.location.reload()}>Restart</button>
+          </div>
         ) : (
           <div className="quiz-container">
-          {/* questions */}
-          <h3>{questions[activeQuestion].question}</h3>
-          {answers.map((answer, idx) => (
-            <li
-              key={idx}
-              onClick={() => onAnswerSelected(answer, idx)}
-              className={
-                selectedAnswerIndex === idx ? "li-selected" : "li-hover"
-              }
-            >
-              <span>{answer}</span>
-            </li>
-          ))}
+            {/* questions */}
+            <h3>{questions[activeQuestion].question}</h3>
+            {answers.map((answer, idx) => (
+              <li
+                key={idx}
+                onClick={() => onAnswerSelected(answer, idx)}
+                className={
+                  selectedAnswerIndex === idx ? "li-selected" : "li-hover"
+                }
+              >
+                <span>{answer}</span>
+              </li>
+            ))}
 
-          {checked ? (
-            <button onClick={nextQuestion} className="btn">
-              {activeQuestion === question.length - 1 ? "finish" : "next"}
-            </button>
-          ) : (
-            <button onClick={nextQuestion} className="btn">
-              {activeQuestion === question.length - 1 ? "finish" : "next"}
-            </button>
-          )}
-        </div>
+            {checked ? (
+              <button onClick={nextQuestion} className="btn">
+                {activeQuestion === question.length - 1 ? "finish" : "next"}
+              </button>
+            ) : (
+              <button onClick={nextQuestion} className="btn">
+                {activeQuestion === question.length - 1 ? "finish" : "next"}
+              </button>
+            )}
+          </div>
         )}
       </div>
     </div>
